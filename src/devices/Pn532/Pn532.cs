@@ -575,9 +575,9 @@ namespace Iot.Device.Pn532
                     nfcId[i] = toDecode[5 + i];
                 }
 
-                if ((5 + nfcId.Length) > toDecode.Length)
+                if ((5 + nfcId.Length) < toDecode.Length)
                 {
-                    ats = new byte[toDecode[5 + nfcId.Length]];
+                    ats = new byte[toDecode[5 + nfcId.Length] - 1];
                     for (int i = 0; i < ats.Length; i++)
                     {
                         ats[i] = toDecode[6 + nfcId.Length + i];
